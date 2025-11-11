@@ -30,6 +30,15 @@ jobs:
           args: -interaction=nonstopmode -halt-on-error -file-line-error
           # If you need extra fonts/packages, uncomment and add them:
           # extra_system_packages: "fonts-noto texlive-fonts-recommended"
+      - name: Upload LaTeX logs (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-logs
+          path: |
+            **/*.log
+            **/*.blg
+            **/*.fls
 
       - name: Prepare docs folder
         run: |
