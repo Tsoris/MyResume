@@ -2,12 +2,6 @@ name: Build LaTeX Resume
 
 on:
   push:
-    paths:
-      - "**.tex"
-      - "**.bib"
-      - "**.sty"
-      - "**.cls"
-      - "figures/**"
   workflow_dispatch:
 
 permissions:
