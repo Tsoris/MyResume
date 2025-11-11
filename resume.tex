@@ -64,7 +64,6 @@
 
 % --- Custom commands ---
 \newcommand{\resumeItem}[1]{\item\small{#1}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt]}
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
@@ -83,7 +82,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %=========================
@@ -168,7 +167,7 @@
 
 % ---------- Technical Skills ----------
 \section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in]
+\begin{itemize}[leftmargin=0.15in, label={}]
   \item \small \textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL, C++, HTML/CSS
   \item \small \textbf{Frameworks \& Tools:} AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing
   \item \small \textbf{Concepts:} Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design
