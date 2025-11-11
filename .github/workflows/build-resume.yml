@@ -1,0 +1,58 @@
+name: Build LaTeX Resume
+
+on:
+  push:
+    paths:
+      - "**.tex"
+      - "**.bib"
+      - "**.sty"
+      - "**.cls"
+      - "figures/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write  # needed to push the compiled PDF back
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Change RESUME_TEX if your main .tex file is named differently
+      - name: Set variables
+        run: |
+          echo "RESUME_TEX=resume.tex" >> $GITHUB_ENV
+          echo "OUTPUT_PDF=Resume.pdf" >> $GITHUB_ENV
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ${{ env.RESUME_TEX }}
+          compiler: xelatex
+          latexmk_use_lualatex: false
+          args: -interaction=nonstopmode -halt-on-error -file-line-error
+          # add any system packages you need for fonts if necessary (example below)
+          # extra_system_packages: "fonts-noto fonts-noto-mono fonts-noto-unhinted"
+
+      - name: Prepare docs folder
+        run: |
+          mkdir -p docs
+          # latex-action drops the PDF next to the .tex; move/rename it
+          src="${{ env.RESUME_TEX%.tex }}.pdf"
+          mv "$src" "docs/${{ env.OUTPUT_PDF }}"
+
+      - name: Upload artifact (optional)
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: docs/${{ env.OUTPUT_PDF }}
+
+      - name: Commit PDF back to repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): auto-build resume PDF"
+          file_pattern: docs/${{ env.OUTPUT_PDF }}
