@@ -20,6 +20,9 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{iftex}
+\usepackage{enumitem}
+
+\setlist[itemize]{topsep=2pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
 
 % pdfTeX-only glyph-to-unicode setup (XeLaTeX/LuaLaTeX do not need this)
 \ifPDFTeX
@@ -60,7 +63,8 @@
   {}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % --- Custom commands ---
-\newcommand{\resumeItem}[1]{\item\small{#1 \vspace{-2pt}}}
+\renewcommand{\resumeItem}[1]{\item\small{#1}}
+\renewcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt]}
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
@@ -153,8 +157,9 @@
     \resumeItem{Designed modular architecture for future Dockerization and CI/CD pipeline deployment.}
   \resumeItemListEnd
 
-  \resumeProjectHeading
-    {\textbf{Devfolio Website} \,|\, Next.js 15, TypeScript, Tailwind CSS, Framer Motion}{\href{https://github.com/tsoris}{GitHub}}
+ \resumeProjectHeading
+  {\textbf{Devfolio Website} — Next.js 15, TypeScript, Tailwind, Framer Motion}
+  {\href{https://github.com/tsoris}{GitHub}}
   \resumeItemListStart
     \resumeItem{Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.}
     \resumeItem{Deployed on Vercel with GitHub Actions for continuous integration and deployment; integrated Supabase to securely store visitor messages and contact form submissions.}
