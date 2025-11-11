@@ -72,16 +72,16 @@
   \end{tabularx}\vspace{2pt}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-  \item
+\renewcommand{\resumeProjectHeading}[2]{%
+  \vspace{2pt}\item
   \begin{tabularx}{\textwidth}{@{}X r@{}}
     \small #1 & #2 \\
-  \end{tabularx}\vspace{-7pt}
+  \end{tabularx}\vspace{2pt}
 }
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt]}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}}
 
 %=========================
