@@ -33,17 +33,17 @@ jobs:
         with:
           root_file: ${{ env.RESUME_TEX }}
           compiler: xelatex
-          latexmk_use_lualatex: false
           args: -interaction=nonstopmode -halt-on-error -file-line-error
-          # add any system packages you need for fonts if necessary (example below)
-          # extra_system_packages: "fonts-noto fonts-noto-mono fonts-noto-unhinted"
+          # If you need extra fonts/packages, uncomment and add them:
+          # extra_system_packages: "fonts-noto texlive-fonts-recommended"
 
       - name: Prepare docs folder
         run: |
           mkdir -p docs
-          # latex-action drops the PDF next to the .tex; move/rename it
-          src="${{ env.RESUME_TEX%.tex }}.pdf"
-          mv "$src" "docs/${{ env.OUTPUT_PDF }}"
+          # strip the .tex extension safely using bash parameter expansion
+          src="${{ env.RESUME_TEX }}"
+          pdf="${src%.tex}.pdf"
+          mv "$pdf" "docs/${{ env.OUTPUT_PDF }}"
 
       - name: Upload artifact (optional)
         uses: actions/upload-artifact@v4
