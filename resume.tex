@@ -22,7 +22,7 @@
 \usepackage{iftex}
 \usepackage{enumitem}
 
-\setlist[itemize]{topsep=2pt, partopsep=0pt, parsep=0pt, itemsep=2pt}
+\setlist[itemize]{topsep=3pt, partopsep=0pt, parsep=0pt, itemsep=3pt}
 
 % pdfTeX-only glyph-to-unicode setup (XeLaTeX/LuaLaTeX do not need this)
 \ifPDFTeX
@@ -58,19 +58,18 @@
 \setlength{\tabcolsep}{0in}
 
 % --- Section formatting ---
-\titleformat{\section}
-  {\vspace{-4pt}\scshape\raggedright\large}
-  {}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}  % {left}{before}{after}
 
 % --- Custom commands ---
 \newcommand{\resumeItem}[1]{\item\small{#1}}
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{2pt}\item
   \begin{tabularx}{\textwidth}[t]{@{}X r@{}}
     \textbf{#1} & #2 \\
     \textit{\small #3} & \textit{\small #4} \\
-  \end{tabularx}\vspace{-7pt}
+  \end{tabularx}\vspace{2pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
@@ -83,7 +82,7 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
 
 %=========================
 \begin{document}
@@ -167,11 +166,10 @@
 
 % ---------- Technical Skills ----------
 \section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
-  \item \small \textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL, C++, HTML/CSS
-  \item \small \textbf{Frameworks \& Tools:} AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing
-  \item \small \textbf{Concepts:} Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design
-\end{itemize}
+\small
+\textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL, C++, HTML/CSS \\
+\textbf{Frameworks \& Tools:} AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing \\
+\textbf{Concepts:} Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design
 
 %=========================
 \end{document}
