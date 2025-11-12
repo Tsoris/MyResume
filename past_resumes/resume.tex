@@ -1,0 +1,177 @@
+
+%-------------------------
+% Resume in LaTeX
+% Base template: Jake Gutierrez
+% Adapted for: Timothy Sorisa
+% License: MIT
+%-------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+% --- Packages ---
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{iftex}
+\usepackage{enumitem}
+
+\setlist[itemize]{topsep=3pt, partopsep=0pt, parsep=0pt, itemsep=3pt}
+
+% pdfTeX-only glyph-to-unicode setup (XeLaTeX/LuaLaTeX do not need this)
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+% --- PDF metadata ---
+\hypersetup{
+  pdftitle   = {Timothy Sorisa — Resume},
+  pdfauthor  = {Timothy Sorisa},
+  pdfsubject = {Software Engineer Resume},
+  pdfkeywords= {Timothy Sorisa, Software Engineer, Amazon, Java, AWS}
+}
+
+% --- Page style ---
+\pagestyle{fancy}
+\fancyhf{} % clear header/footer
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Margins ---
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% --- Section formatting ---
+\titleformat{\section}{\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}  % {left}{before}{after}
+
+% --- Custom commands ---
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1pt}\item
+  \begin{tabularx}{\textwidth}[t]{@{}X r@{}}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabularx}\vspace{0pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{%
+  \vspace{1pt}\item
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \small #1 & #2 \\
+  \end{tabularx}\vspace{0pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+%=========================
+\begin{document}
+%=========================
+
+% ---------- Header ----------
+\begin{center}
+  {\Huge \scshape Timothy Sorisa} \\[-1pt]
+  \href{mailto:t.sorisa@gmail.com}{\texttt{t.sorisa@gmail.com}} \,|\,
+  \texttt{(863) 256-7823} \,|\,
+  United States \,|\,
+  \href{https://www.linkedin.com/in/timothy-sorisa-9b650580}{linkedin.com/in/timothy-sorisa} \,|\,
+  \href{https://github.com/tsoris}{github.com/tsoris}
+\end{center}
+
+% ---------- Experience ----------
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Amazon Ads}{Santa Monica, CA}
+    {Software Developer}{Oct. 2022 -- Mar. 2024}
+  \resumeItemListStart
+    \resumeItem{Developed and maintained full-stack systems using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume ad-shopping data.}
+    \resumeItem{Engineered ELT pipelines aggregating millions of records daily, improving ad fund distribution efficiency by 40\%.}
+    \resumeItem{Refactored and modernized legacy Java and TypeScript codebases, improving performance and maintainability.}
+    \resumeItem{Collaborated with UI/UX Design to enhance TypeScript front-end components, reducing user-flow friction and improving load times.}
+    \resumeItem{Implemented automated fail-safes and unit/integration tests to increase reliability and deployment confidence.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {Amazon Fulfillment}{Lakeland, FL}
+    {Learning Ambassador}{Dec. 2020 -- Feb. 2022}
+  \resumeItemListStart
+    \resumeItem{Trained and coached peers in high-volume operations while demonstrating Amazon Leadership Principles.}
+    \resumeItem{Admitted into Amazon Technical Academy (competitive internal SDE training program; <1\% acceptance rate).}
+    \resumeItem{Consistently ranked in the top performance percentile among 100+ associates through documentation and leadership metrics.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ---------- Education ----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Oregon State University}{Remote}
+    {Programming Fundamentals Microcredential}{Aug. 2025 -- Present}
+  \resumeItemListStart
+    \resumeItem{Maintaining A-level performance in CS 161 (Programming Fundamentals) and CS 225 (Discrete Structures).}
+    \resumeItem{Recommended for Undergraduate Learning Assistant (ULA); planning transition into the Post-Baccalaureate Computer Science Program (expected Winter 2026).}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {Amazon Technical Academy}{Remote}
+    {Software Engineering Upskill}{Feb. 2022 -- Oct. 2022}
+  \resumeItemListStart
+    \resumeItem{9-month Java-focused software development curriculum covering OOP, data structures, and systems design.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {University of South Florida}{Tampa, FL}
+    {B.S. in Health Sciences}{Aug. 2013 -- May 2018}
+\resumeSubHeadingListEnd
+
+% ---------- Projects ----------
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{AI Email Sorter} \,|\, Python, Gmail API, Supabase, YAML}
+    {\href{https://github.com/Tsoris/AI-Email-Sorter}{GitHub}}
+  \resumeItemListStart
+    \resumeItem{Built a rule-based email classifier integrating AI-assisted sorting and database logging.}
+    \resumeItem{Designed modular architecture for future Dockerization and CI/CD pipeline deployment.}
+  \resumeItemListEnd
+
+ \resumeProjectHeading
+  {\textbf{Devfolio Website} — Next.js 15, TypeScript, Tailwind, Framer Motion}
+  {\href{https://github.com/Tsoris/My-Portfolio}{GitHub}}
+  \resumeItemListStart
+    \resumeItem{Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.}
+    \resumeItem{Deployed on Vercel with GitHub Actions for continuous integration and deployment; integrated Supabase to securely store visitor messages and contact form submissions.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ---------- Technical Skills ----------
+\section{Technical Skills}
+\small
+\textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL, C++, HTML/CSS \\
+\textbf{Frameworks \& Tools:} AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing \\
+\textbf{Concepts:} Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design
+
+%=========================
+\end{document}
+%=========================
