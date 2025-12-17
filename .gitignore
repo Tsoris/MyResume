@@ -8,6 +8,9 @@
 *.out
 *.synctex.gz
 *.toc
+*.synctex
+*.synctex(busy)
 
 # Keep the published PDF
 !docs/Resume.pdf
+*.pdf
