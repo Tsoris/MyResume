@@ -14,3 +14,4 @@
 # Keep the published PDF
 !docs/Resume.pdf
 *.pdf
+JakeResume.tex

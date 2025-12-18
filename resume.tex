@@ -1,18 +1,87 @@
 \documentclass[11pt]{article}
+
 \usepackage[a4paper,margin=0.75in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
 \setlength{\parindent}{0pt}
 
-\titleformat{\section}{\large\bfseries}{}{0em}{}
-\titlespacing*{\section}{0pt}{1ex}{0.5ex}
-\newcommand{\sectionline}{
-    \vspace{0.4ex}
-    \hrule
-    \vspace{1.0ex}
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
 }
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \begin{document}
 
@@ -23,72 +92,78 @@
     \href{https://www.linkedin.com/in/timothy-sorisa-9b650580}{linkedin.com/in/timothy-sorisa} $\vert$ \href{https://github.com/tsoris}{github.com/tsoris}
 \end{center}
 
-\section*{Experience}
-\sectionline
 
-\textbf{Software Developer}, Amazon Ads — Santa Monica, CA\\
-\textit{\textbf{Oct 2022 -- Mar 2024}}
-\begin{itemize}[leftmargin=*]
-    \item Built and maintained serverless, event-driven systems using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume ad-shopping data.
-    \item Designed and optimized ELT pipelines aggregating millions of records daily, improving ad fund distribution efficiency by 40\%.
-    \item Refactored legacy Java and TypeScript services to improve performance, reliability, and long-term maintainability.
-    \item Partnered with product and UI/UX teams to enhance TypeScript front-end workflows, reducing user friction and improving load times.
-    \item Implemented automated testing, monitoring, and fail-safes to increase deployment confidence and system reliability.
-\end{itemize}
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Software Developer}{Oct 2022 -- Mar 2024}
+      {Amazon Ads}{Santa Monica, CA}
+      \resumeItemListStart
+        \resumeItem{Built and maintained serverless, event-driven systems using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume ad-shopping data.}
+        \resumeItem{Designed and optimized ELT pipelines aggregating millions of records daily, improving ad fund distribution efficiency by 40\%.}
+        \resumeItem{Refactored legacy Java and TypeScript services to improve performance, reliability, and long-term maintainability.}
+        \resumeItem{Partnered with product and UI/UX teams to enhance TypeScript front-end workflows, reducing user friction and improving load times.}
+        \resumeItem{Implemented automated testing, monitoring, and fail-safes to increase deployment confidence and system reliability.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Learning Ambassador}{Dec 2020 -- Feb 2022}
+      {Amazon Fulfillment}{Lakeland, FL}
+      \resumeItemListStart
+        \resumeItem{Trained and mentored associates in high-volume operations while exemplifying Amazon Leadership Principles.}
+        \resumeItem{Selected for Amazon Technical Academy, a competitive internal software engineering program ($<$1\% acceptance rate).}
+        \resumeItem{Ranked consistently in the top performance percentile among 100+ associates based on productivity and leadership metrics.}
+      \resumeItemListEnd
 
-\vspace{4pt}
+  \resumeSubHeadingListEnd
 
-\textbf{Learning Ambassador}, Amazon Fulfillment — Lakeland, FL\\
-\textit{\textbf{Dec 2020 -- Feb 2022}}
-\begin{itemize}[leftmargin=*]
-    \item Trained and mentored associates in high-volume operations while exemplifying Amazon Leadership Principles.
-    \item Selected for Amazon Technical Academy, a competitive internal software engineering program ($<$1\% acceptance rate).
-    \item Ranked consistently in the top performance percentile among 100+ associates based on productivity and leadership metrics.
-\end{itemize}
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Oregon State University}{Ecampus}
+      {Programming Fundamentals Microcredential}{Aug 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{CS 161 (Intro To Computer Sciences) and CS 225 (Discrete Structures) — \textbf{4.0 GPA}.}
+        \resumeItem{Recommended for Undergraduate Learning Assistant (ULA) in CS 225. }
+        \resumeItem{Transitioning into the Post-Baccalaureate Computer Science Program (expected Spring 2026).}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Amazon Technical Academy}{Remote}
+      {Software Engineering Upskill}{Feb 2022 -- Oct 2022}
+    \resumeSubheading
+      {University of South Florida}{Tampa, FL}
+      {B.S. in Health Sciences}{Aug 2013 -- May 2018}
+  \resumeSubHeadingListEnd
 
-\section*{Education}
-\sectionline
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{AI Email Sorter} $|$ \emph{Python, Gmail API, Supabase, YAML}}{}
+          \resumeItemListStart
+            \resumeItem{Built a modular, rule-based email classification system integrating Python, Gmail API, YAML-based rules, and Supabase logging.}
+            \resumeItem{Designed extensible architecture to support AI-assisted categorization, Dockerization, and future CI/CD deployment.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Devfolio Website} $|$ \emph{Next.js 15, TypeScript, Tailwind CSS, Framer Motion}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.}
+            \resumeItem{Deployed on Vercel with GitHub Actions enabling automated CI/CD workflows.}
+            \resumeItem{Implemented secure backend data storage with Supabase to persist contact form submissions and visitor messages.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
-\textbf{Oregon State University} $\vert$ Ecampus\\
-\textit{Programming Fundamentals Microcredential} $\vert$ Aug 2025 -- Present
-\begin{itemize}[leftmargin=*]
-    \item CS 161 (Intro To Computer Sciences) and CS 225 (Discrete Structures) — \textbf{4.0 GPA}.
-    \item Recommended for Undergraduate Learning Assistant (ULA) in CS 225. 
-    \item Transitioning into the Post-Baccalaureate Computer Science Program (expected Spring 2026).    
-\end{itemize}
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, Python, JavaScript, TypeScript, SQL, C++ (academic), HTML/CSS} \\
+     \textbf{Frameworks \& Tools}{: AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing} \\
+     \textbf{Concepts}{: Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design}
+    }}
+ \end{itemize}
 
-\vspace{6pt}
 
-\textbf{Amazon Technical Academy} $\vert$ Remote\\
-\textit{Software Engineering Upskill} $\vert$ Feb 2022 -- Oct 2022\\
-Completed a 9-month Java-focused software engineering curriculum covering object-oriented programming, data structures, and systems design.
-
-\vspace{6pt}
-
-\textbf{University of South Florida} $\vert$ Tampa, FL\\
-\textit{B.S. in Health Sciences} $\vert$ Aug 2013 -- May 2018
-
-\section*{Projects}
-\sectionline
-
-\textbf{AI Email Sorter} $\vert$ Python, Gmail API, Supabase, YAML
-\begin{itemize}[leftmargin=*]
-    \item Built a modular, rule-based email classification system integrating Python, Gmail API, YAML-based rules, and Supabase logging.
-    \item Designed extensible architecture to support AI-assisted categorization, Dockerization, and future CI/CD deployment.
-\end{itemize}
-
-\textbf{Devfolio Website} $\vert$ Next.js 15, TypeScript, Tailwind CSS, Framer Motion
-\begin{itemize}[leftmargin=*]
-    \item Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.
-    \item Deployed on Vercel with GitHub Actions enabling automated CI/CD workflows.
-    \item Implemented secure backend data storage with Supabase to persist contact form submissions and visitor messages.
-\end{itemize}
-
-\section*{Technical Skills}
-\sectionline
-
-\textbf{Languages:} Java, Python, JavaScript, TypeScript, SQL, C++ (academic), HTML/CSS\\
-\textbf{Frameworks \& Tools:} AWS (Lambda, S3, SQS, VPC, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing\\
-\textbf{Concepts:} Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design
-
+ 
 \end{document}
