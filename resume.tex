@@ -7,6 +7,7 @@
 \usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
+\usepackage{iftex}
 \setlength{\parindent}{0pt}
 
 %----------FONT OPTIONS----------
@@ -42,7 +43,10 @@
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+\ifPDFTeX
+  \pdfgentounicode=1
+\fi
+
 
 %-------------------------
 % Custom commands
@@ -165,5 +169,5 @@
  \end{itemize}
 
 
- 
+
 \end{document}
