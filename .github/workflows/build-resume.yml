@@ -17,10 +17,14 @@ jobs:
           fetch-depth: 0
 
       # Change RESUME_TEX if your main .tex file is named differently
-      - name: Build resume PDF
+      - name: Install TeX Live
         run: |
-          pdflatex -interaction=nonstopmode resume.tex
-          pdflatex -interaction=nonstopmode resume.tex
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra latexmk
+
+      - name: Build resume
+        run: |
+          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" resume.tex
           
       - name: Set variables
         run: |
