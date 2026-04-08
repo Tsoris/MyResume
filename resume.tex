@@ -93,7 +93,9 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.25in, rightmargin=2in]}
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+}
 \newcommand{\resumeItemListEnd}{\end{itemize}}
 
 \begin{document}
@@ -102,7 +104,7 @@
     \textbf{\Large Timothy Sorisa}\\
     \vspace{2pt}
     \href{mailto:t.sorisa@gmail.com}{t.sorisa@gmail.com} $\vert$ (863) 256-7823\\
-    \href{https://www.linkedin.com/in/timothy-sorisa-9b650580}{linkedin.com/timothy-sorisa} $\vert$
+    \href{https://www.linkedin.com/in/timothy-sorisa}{linkedin.com/timothy-sorisa} $\vert$
     \href{https://github.com/tsoris}{github.com/tsoris} $\vert$
     \href{https://tims-devfolio.vercel.app/}{tims-devfolio}
 \end{center}
@@ -116,19 +118,32 @@
       {Software Development Engineer (Apprentice)}{Oct 2022 -- Mar 2024}
       {  {Developed backend systems supporting advertiser metrics and fund distribution decisions.}}
       \resumeItemListStart
-        \resumeItem{Designed and optimized ELT pipelines processing millions of records daily to improve reliability and efficiency of advertiser fund distribution systems.}
+        \resumeItem{Designed and optimized distributed systems processing millions of records daily to improve reliability and efficiency of advertiser fund distribution systems.}
         \resumeItem{Owned development and maintenance of distributed serverless pipelines using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume advertising data.}
-        \resumeItem{Refactored legacy Java and TypeScript services to improve performance, reliability, and long-term maintainability of advertising infrastructure.}
+        \resumeItem{Refactored legacy Java and TypeScript across multiple services to improve performance, reliability, and long-term maintainability of advertising infrastructure.}
         \resumeItem{Partnered with product and UI/UX teams to enhance TypeScript front-end workflows, reducing user friction and improving load times.}
         \resumeItem{Implemented automated testing, monitoring, and deployment safeguards to support reliable production releases.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Amazon Technical Academy (ATA)}{Remote}
+      {ATA Participant}{Feb 2022 -- Oct 2022}
+      \resumeItemListStart
+        \resumeItem{Completed full-time, paid upskill software engineering program focused on Java, data structures, algorithms, distributed systems, and software engineering best practices.}
+        \resumeItem{Built production-style applications using object-oriented design and AWS services}
       \resumeItemListEnd
     \resumeSubheading
       {Amazon Fulfillment}{Lakeland, FL}
       {Learning Ambassador/Amazon Associate}{Dec 2020 -- Feb 2022}
       \resumeItemListStart
-        \resumeItem{Trained and mentored associates in high-volume outbound operations while exemplifying Amazon Leadership Principles.}
-        \resumeItem{Selected for Amazon Technical Academy, a competitive internal software engineering program (sub 1\% acceptance rate).}
-        \resumeItem{Ranked consistently in the top performance percentile among 100+ associates based on productivity and leadership metrics.}
+        \resumeItem{Trained and mentored associates in high-volume outbound operations while exemplifying Amazon Leadership Principles}
+        \resumeItem{Selected for Amazon Technical Academy, a competitive internal software engineering program (sub 1\% acceptance rate)}
+      \resumeItemListEnd
+      \resumeSubheading
+      {Oregon State University}{Remote}
+      {Undergraduate Learning Assistant - Discrete Structures in Computer Science}{Mar 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Support student understanding of logic, proofs, sets, functions, and discrete mathematical reasoning}
+        \resumeItem{Facilitate office hours and provide guidance to students}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -140,26 +155,22 @@
       {Oregon State University}{Ecampus}
       {Bachelor of Science in Computer Science}{Expected Dec 2027}
       \resumeItemListStart
-        \resumeItem{Completed CS 161 (Intro To Computer Sciences) and CS 225 (Discrete Structures) — \textbf{4.0 GPA}.}
-        \resumeItem{CS 261:Data Structures - Expected Spring 26}
-        \resumeItem{Recommended for Undergraduate Learning Assistant (ULA) in CS 225 - Expected Spring 26.}
+        \resumeItem{Completed CS 161 \& CS 162 Intro To Computer Sciences 1 \& 2 and CS 225 Discrete Structures — \textbf{4.0 GPA}.}
+        \resumeItem{Current: CS 261 Data Structures \& CS 290 Web Development - Expected completion June 2026}
       \resumeItemListEnd
     \resumeSubheading
-      {Amazon Technical Academy}{Remote}
-      {Internal Software Engineering Upskill Program}{Feb 2022 -- Oct 2022}
-    \resumeSubheading
       {University of South Florida}{Tampa, FL}
-      {B.S. in Health Sciences}{Aug 2013 -- May 2018}
+      {Bachelor of Science in Health Sciences}{Aug 2013 -- May 2018}
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{AI Email Sorter} $|$ \emph{Python, Gmail API, Supabase (PostgreSQL), YAML}}{}
+          {\textbf{Email Sorter} $|$ \emph{Python, Gmail API, Supabase (PostgreSQL), YAML}}{}
           \resumeItemListStart
             \resumeItem{Built a modular, rule-based email classification system integrating Python, Gmail API, YAML-based rules, and Supabase logging.}
-            \resumeItem{Designed extensible architecture to support AI-assisted categorization, Dockerization, and future CI/CD deployment.}
+            \resumeItem{Designed extensible architecture to support future AI-assisted categorization, Dockerization, and CI/CD deployment.}
           \resumeItemListEnd
       \resumeProjectHeading
           {\textbf{Devfolio Website} $|$ \emph{Next.js 15, TypeScript, Tailwind CSS, Framer Motion}}{}
