@@ -15,3 +15,6 @@
 !docs/Resume.pdf
 *.pdf
 JakeResume.tex
+
+# IDE files
+.idea/

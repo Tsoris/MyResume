@@ -10,13 +10,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RESUME_TEX: resume.tex
+      OUTPUT_PDF: Resume.pdf
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Change RESUME_TEX if your main .tex file is named differently
       - name: Install TeX Live
         run: |
           sudo apt-get update
@@ -24,21 +26,7 @@ jobs:
 
       - name: Build resume
         run: |
-          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" resume.tex
-          
-      - name: Set variables
-        run: |
-          echo "RESUME_TEX=resume.tex" >> $GITHUB_ENV
-          echo "OUTPUT_PDF=Resume.pdf" >> $GITHUB_ENV
-
-      - name: Compile LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: ${{ env.RESUME_TEX }}
-          compiler: xelatex
-          args: -interaction=nonstopmode -halt-on-error -file-line-error
-          # If you need extra fonts/packages, uncomment and add them:
-          # extra_system_packages: "fonts-noto texlive-fonts-recommended"
+          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -file-line-error" "${RESUME_TEX}"
           
       - name: Upload LaTeX logs (always)
         if: always()
@@ -53,19 +41,18 @@ jobs:
       - name: Prepare docs folder
         run: |
           mkdir -p docs
-          # strip the .tex extension safely using bash parameter expansion
-          src="${{ env.RESUME_TEX }}"
+          src="${RESUME_TEX}"
           pdf="${src%.tex}.pdf"
-          mv "$pdf" "docs/${{ env.OUTPUT_PDF }}"
+          mv "$pdf" "docs/${OUTPUT_PDF}"
 
       - name: Upload artifact (optional)
         uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
-          path: docs/${{ env.OUTPUT_PDF }}
+          path: docs/${OUTPUT_PDF}
 
       - name: Commit PDF back to repo
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(ci): auto-build resume PDF"
-          file_pattern: docs/${{ env.OUTPUT_PDF }}
+          file_pattern: docs/${OUTPUT_PDF}

@@ -1,6 +1,8 @@
 \documentclass[11pt]{article}
 
 \usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
@@ -42,8 +44,9 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
+% Ensure that generated PDF is machine readable/ATS parsable
 \ifPDFTeX
+  \input{glyphtounicode}
   \pdfgentounicode=1
 \fi
 
@@ -155,7 +158,7 @@
       {Oregon State University}{Ecampus}
       {Bachelor of Science in Computer Science}{Expected Dec 2027}
       \resumeItemListStart
-        \resumeItem{Completed CS 161 \& CS 162 Intro To Computer Sciences 1 \& 2 and CS 225 Discrete Structures — \textbf{4.0 GPA}.}
+        \resumeItem{Completed CS 161 \& CS 162 Intro To Computer Sciences 1 \& 2 and CS 225 Discrete Structures --- \textbf{4.0 GPA}.}
         \resumeItem{Current: CS 261 Data Structures \& CS 290 Web Development - Expected completion June 2026}
       \resumeItemListEnd
     \resumeSubheading
