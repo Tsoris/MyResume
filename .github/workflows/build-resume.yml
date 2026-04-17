@@ -27,7 +27,7 @@ jobs:
       - name: Build resume
         run: |
           latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -file-line-error" "${RESUME_TEX}"
-          
+
       - name: Upload LaTeX logs (always)
         if: always()
         uses: actions/upload-artifact@v4
@@ -49,10 +49,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: resume-pdf
-          path: docs/${OUTPUT_PDF}
+          path: docs/${{ env.OUTPUT_PDF }}
 
       - name: Commit PDF back to repo
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(ci): auto-build resume PDF"
-          file_pattern: docs/${OUTPUT_PDF}
+          file_pattern: docs/${{ env.OUTPUT_PDF }}
