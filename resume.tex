@@ -97,10 +97,12 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=0pt]
+}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{
-  \begin{itemize}[leftmargin=*, itemsep=1pt, topsep=1pt]
+  \begin{itemize}[leftmargin=*, itemsep=0pt, topsep=0pt]
 }
 \newcommand{\resumeItemListEnd}{\end{itemize}}
 
@@ -122,7 +124,7 @@
     \resumeSubheadingDesc
       {Amazon Ads}{Santa Monica, CA}
       {Software Development Engineer (Apprentice)}{Oct 2022 - Mar 2024}
-      {  {Developed backend systems supporting advertiser metrics and fund distribution decisions.}}
+      {{Advertising systems supporting campaign metrics and advertiser fund distribution.}}
       \resumeItemListStart
         \resumeItem{Designed and optimized distributed systems processing millions of records daily to improve reliability and efficiency of advertiser fund distribution systems.}
         \resumeItem{Owned development and maintenance of distributed serverless pipelines using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume advertising data.}
@@ -130,27 +132,25 @@
         \resumeItem{Partnered with product and UI/UX teams to enhance TypeScript front-end workflows, reducing user friction and improving load times.}
         \resumeItem{Implemented automated testing, monitoring, and deployment safeguards to support reliable production releases.}
       \resumeItemListEnd
-    \resumeSubheading
+      \vspace{3pt}
+    \resumeSubheadingDesc
       {Amazon Technical Academy (ATA)}{Lake Wales, FL (Remote)}
       {ATA Participant}{Feb 2022 -- Oct 2022}
+      {{Highly selective paid internal software engineering training program for Amazon employees transitioning into technical roles.}}
       \resumeItemListStart
-        \resumeItem{Completed full-time, paid upskill software engineering program focused on Java, data structures, algorithms, distributed systems, and software engineering best practices.}
-        \resumeItem{Built production-style applications using object-oriented design and AWS services}
+        \resumeItem{Trained in Java, data structures, algorithms, distributed systems, object-oriented design, and software engineering best practices through a full-time software engineering curriculum.}
+        \resumeItem{Applied software engineering practices modeled after Amazon development workflows through hands-on projects using object-oriented design, testing, and AWS services.}
       \resumeItemListEnd
-    \resumeSubheading
-      {Amazon Fulfillment}{Lakeland, FL}
-      {Learning Ambassador/Amazon Associate}{Dec 2020 - Feb 2022}
-      \resumeItemListStart
-        \resumeItem{Trained and mentored associates in high-volume outbound operations while exemplifying Amazon Leadership Principles}
-        \resumeItem{Selected for Amazon Technical Academy, a competitive internal software engineering program (sub 1\% acceptance rate)}
-      \resumeItemListEnd
-      \resumeSubheading
+      \vspace{3pt}
+    \resumeSubheadingDesc
       {Oregon State University}{Los Angeles, CA (Remote)}
-      {Undergraduate Learning Assistant - Discrete Structures in Computer Science}{Mar 2026 -- Present}
+      {Undergraduate Learning Assistant}{Mar 2026 -- Present}
+      {{CS 225: Discrete Structures in Computer Science}}
       \resumeItemListStart
         \resumeItem{Lead virtual office hours, translating logic, proof techniques, and set theory into clear problem-solving strategies}
         \resumeItem{Grade discrete mathematics assignments and provide actionable feedback on students' logic, proof structure, and solution approaches}
       \resumeItemListEnd
+
 
   \resumeSubHeadingListEnd
 %-----------EDUCATION-----------
@@ -158,11 +158,12 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Oregon State University}{Corvallis, OR}
-      {Bachelor of Science in Computer Science}{Expected Dec 2027}
+      {Bachelor of Science in Computer Science $|$ GPA: 4.0}{Expected Dec 2027}
+      \vspace{-1pt}
       \resumeItemListStart
         \resumeItem{Relevant Courses: Discrete Structures, Data Structures, Computer Architecture \& Assembly Language, Web Development}
-        \resumeItem{GPA - 4.0}
       \resumeItemListEnd
+      \vspace{2pt}
     \resumeSubheading
       {University of South Florida}{Tampa, FL}
       {Bachelor of Science in Health Sciences}{Aug 2013 - May 2018}
@@ -172,14 +173,15 @@
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
+\resumeProjectHeading
+    {\textbf{\href{https://github.com/Tsoris/drop-in-chess/blob/main/README.md}{Drop in Chess}} $|$ \emph{Java, Spring Boot, React, TypeScript, REST APIs}}{}
+    \resumeItemListStart
+        \resumeItem{Developed a full-stack chess application with a React/TypeScript frontend and Java Spring Boot backend, using REST APIs to create, restore, and manage game sessions.}
+        \resumeItem{Designed a server-authoritative game architecture using Chesslib to validate moves and maintain game state, with session restoration and client-server state synchronization.}
+        \resumeItem{Implemented layered backend architecture with controllers, services, and DTOs, alongside frontend error handling and automated tests for core application behavior.}
+    \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Email Sorter} $|$ \emph{Python, Gmail API, Supabase (PostgreSQL), YAML}}{}
-          \resumeItemListStart
-            \resumeItem{Built a modular, rule-based email classification system integrating Python, Gmail API, YAML-based rules, and Supabase logging.}
-            \resumeItem{Designed extensible architecture to support future AI-assisted categorization, Dockerization, and CI/CD deployment.}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Devfolio Website} $|$ \emph{Next.js 15, TypeScript, Tailwind CSS, Framer Motion}}{}
+          {\textbf{\href{https://tims-devfolio.vercel.app/}{Devfolio Website}} $|$ \emph{Next.js 15, TypeScript, Tailwind CSS, Framer Motion}}{}
           \resumeItemListStart
             \resumeItem{Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.}
             \resumeItem{Deployed on Vercel with GitHub Actions enabling automated CI/CD workflows.}
@@ -191,9 +193,9 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Java, Python, JavaScript, TypeScript, SQL, C++, HTML/CSS} \\
-     \textbf{Frameworks \& Tools}{: AWS (Lambda, S3, SQS, VPC, DynamoDB, CDK), React, Docker, Git, CI/CD, Unit \& Integration Testing} \\
-     \textbf{Concepts}{: Data Structures \& Algorithms, ELT Pipelines, Cloud Architecture, Object-Oriented Design}
+      \textbf{Languages}{: Java, Python, JavaScript/TypeScript, SQL, C++, HTML/CSS} \\
+      \textbf{Frameworks \& Tools}{: Spring Boot, React, Next.js, AWS, Docker, Git, PostgreSQL} \\
+      \textbf{Concepts}{: REST APIs, CI/CD, Distributed Systems, Object-Oriented Design, Unit \& Integration Testing}
     }}
  \end{itemize}
 
