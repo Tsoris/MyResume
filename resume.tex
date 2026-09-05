@@ -1,19 +1,28 @@
-\documentclass[11pt]{article}
+\documentclass[10pt,letterpaper]{article}
 
-\usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{cmap}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{hyperref}
 \usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{iftex}
-\usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{hyperref}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[
+  hidelinks,
+  unicode=true,
+  pdfauthor={Timothy Sorisa},
+  pdftitle={Timothy Sorisa Resume},
+  pdfsubject={Software Engineering Resume}
+]{hyperref}
 \setlength{\parindent}{0pt}
+
+% Keep copied/extracted text free of Unicode ligature characters that can
+% confuse older applicant tracking systems.
+\DisableLigatures{encoding = *, family = *}
 
 %----------FONT OPTIONS----------
 % sans-serif
@@ -28,13 +37,6 @@
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
 
@@ -64,33 +66,29 @@
 
 \newcommand{\resumeSubheading}[4]{
   \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \textbf{#1} \hfill #2 \\
+    \textit{\small #3} \hfill \textit{\small #4}
+    \vspace{-7pt}
 }
 
 \newcommand{\resumeSubheadingDesc}[5]{
   \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
-      \textbf{#1} & #2 \\
-      \textit{\small #3} & \textit{\small #4} \\
-      \multicolumn{2}{@{}p{0.97\textwidth}@{}}{\small\itshape #5} \\
-    \end{tabular*}\vspace{-5pt}
+    \textbf{#1} \hfill #2 \\
+    \textit{\small #3} \hfill \textit{\small #4} \\
+    {\small\itshape #5}
+    \vspace{-5pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
     \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+    \textit{\small #1} \hfill \textit{\small #2}
+    \vspace{-7pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
     \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \small #1 \hfill #2
+    \vspace{-7pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
@@ -113,62 +111,60 @@
     \textbf{\Large Timothy Sorisa}\\
     \vspace{2pt}
     \href{mailto:t.sorisa@gmail.com}{t.sorisa@gmail.com} $\vert$ (863) 256-7823\\
-    \href{https://www.linkedin.com/in/timothy-sorisa}{linkedin.com/timothy-sorisa} |
-    \href{https://github.com/tsoris}{github.com/tsoris} |
+    \href{https://www.linkedin.com/in/timothy-sorisa}{linkedin.com/in/timothy-sorisa} $\vert$
+    \href{https://github.com/tsoris}{github.com/tsoris} $\vert$
     \href{https://tims-devfolio.vercel.app/}{tims-devfolio.vercel.app}
 \end{center}
 
-%-----------EXPERIENCE-----------
-\section{Experience}
-  \resumeSubHeadingListStart
-    \resumeSubheadingDesc
-      {\href{https://advertising.amazon.com/}{Amazon Ads}}{Santa Monica, CA}
-      {Software Development Engineer (Apprentice)}{Oct 2022 - Mar 2024}
-      {{Advertising systems supporting campaign metrics and advertiser fund distribution.}}
-      \resumeItemListStart
-        \resumeItem{Designed and optimized distributed systems processing millions of records daily to improve reliability and efficiency of advertiser fund distribution systems.}
-        \resumeItem{Owned development and maintenance of distributed serverless pipelines using AWS Lambda, SQS, S3, VPC, and CDK to process high-volume advertising data.}
-        \resumeItem{Refactored legacy Java and TypeScript across multiple services to improve performance, reliability, and long-term maintainability of advertising infrastructure.}
-        \resumeItem{Partnered with product and UI/UX teams to enhance TypeScript front-end workflows, reducing user friction and improving load times.}
-        \resumeItem{Implemented automated testing, monitoring, and deployment safeguards to support reliable production releases.}
-      \resumeItemListEnd
-      \vspace{3pt}
-    \resumeSubheadingDesc
-      {Amazon Technical Academy (ATA)}{Lake Wales, FL (Remote)}
-      {ATA Participant}{Feb 2022 -- Oct 2022}
-      {{Highly selective paid internal software engineering training program for Amazon employees transitioning into technical roles.}}
-      \resumeItemListStart
-        \resumeItem{Trained in Java, data structures, algorithms, distributed systems, object-oriented design, and software engineering best practices through a full-time software engineering curriculum.}
-        \resumeItem{Applied software engineering practices modeled after Amazon development workflows through hands-on projects using object-oriented design, testing, and AWS services.}
-      \resumeItemListEnd
-      \vspace{3pt}
-    \resumeSubheadingDesc
-      {Oregon State University}{Los Angeles, CA (Remote)}
-      {Undergraduate Learning Assistant}{Mar 2026 -- Present}
-      {{CS 225: Discrete Structures in Computer Science}}
-      \resumeItemListStart
-        \resumeItem{Lead virtual office hours, translating logic, proof techniques, and set theory into clear problem-solving strategies}
-        \resumeItem{Grade discrete mathematics assignments and provide actionable feedback on students' logic, proof structure, and solution approaches}
-      \resumeItemListEnd
-
-
-  \resumeSubHeadingListEnd
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
       {Oregon State University}{Corvallis, OR}
-      {Bachelor of Science in Computer Science $|$ GPA: 4.0}{Expected Dec 2027}
+      {Bachelor of Science in Computer Science $|$ GPA: 4.0}{Sep 2025 - Dec 2027 (expected)}
       \vspace{-1pt}
       \resumeItemListStart
         \resumeItem{Relevant Courses: Discrete Structures, Data Structures, Computer Architecture \& Assembly Language, Web Development}
       \resumeItemListEnd
       \vspace{2pt}
-    \resumeSubheading
-      {University of South Florida}{Tampa, FL}
-      {Bachelor of Science in Health Sciences}{Aug 2013 - May 2018}
   \resumeSubHeadingListEnd
 
+%-----------TECHNICAL EXPERIENCE-----------
+\section{Technical Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheadingDesc
+      {\href{https://advertising.amazon.com/}{Amazon Ads}}{Santa Monica, CA}
+      {Software Development Engineer Apprentice}{Oct 2022 - Mar 2024}
+      {{Developed production measurement systems across Amazon Ads Marketing Mix Modeling and Omnichannel Metrics teams.}}
+      \resumeItemListStart
+        \resumeItem{Built and maintained high-throughput serverless pipelines using AWS Lambda, SQS, S3, VPC, and CDK, processing millions of advertising records daily across petabyte-scale datasets.}
+        \resumeItem{Refactored tightly coupled Java and TypeScript components across 5+ production services to enable unit testing, adding tests for 8,000+ previously untested lines and increasing coverage from below 60\% to over 80\%.}
+        \resumeItem{Reduced friction, improved load times, and extended functionality for users by partnering with product and UI/UX teams to enhance TypeScript front-end workflows}
+        \resumeItem{Implemented monitoring, automated deployment validation, and release safeguards in CI/CD pipelines to improve production reliability.}
+      \resumeItemListEnd
+      \vspace{3pt}
+    \resumeSubheadingDesc
+      {Amazon Technical Academy (ATA)}{Lake Wales, FL (Remote)}
+      {SDE Trainee}{Feb 2022 - Oct 2022}
+      {{Highly selective paid internal training program for Amazon employees to transition into software development engineering roles.}}
+      \resumeItemListStart
+        \resumeItem{Trained in Java, data structures, algorithms, distributed systems, object-oriented design, and software engineering best practices through a full-time 9-month curriculum.}
+        \resumeItem{Applied software engineering practices modeled after Amazon development workflows through hands-on projects using object-oriented design, testing, and AWS services.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------ADDITIONAL EXPERIENCE-----------
+\section{Additional Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheadingDesc
+      {Oregon State University}{Los Angeles, CA (Remote)}
+      {Undergraduate Learning Assistant}{Mar 2026 - Present}
+      {{CS 225: Discrete Structures in Computer Science}}
+      \resumeItemListStart
+        \resumeItem{Mentored 100+ students in discrete logic, proof techniques, and set theory, breaking down complex mathematical concepts during weekly virtual office hours and through discussion boards.}
+        \resumeItem{Evaluated discrete mathematics assignments and provided actionable feedback on students' logic, proof structure, and solution approaches.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------
 \section{Projects}
@@ -184,7 +180,6 @@
           {\textbf{\href{https://tims-devfolio.vercel.app/}{Devfolio Website}} $|$ \emph{Next.js 15, TypeScript, Tailwind CSS, Framer Motion}}{}
           \resumeItemListStart
             \resumeItem{Developed a responsive portfolio with dynamic hero sections, tooltips, and custom animations.}
-            \resumeItem{Deployed on Vercel with GitHub Actions enabling automated CI/CD workflows.}
             \resumeItem{Implemented secure backend data storage with Supabase to persist contact form submissions and visitor messages.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
@@ -194,7 +189,7 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
       \textbf{Languages}{: Java, Python, JavaScript/TypeScript, SQL, C++, HTML/CSS} \\
-      \textbf{Frameworks \& Tools}{: Spring Boot, React, Next.js, AWS, Docker, Git, PostgreSQL} \\
+      \textbf{Frameworks \& Tools}{: Spring Boot, React, Next.js, AWS, Docker, Git, PostgreSQL, Linux} \\
       \textbf{Concepts}{: REST APIs, CI/CD, Distributed Systems, Object-Oriented Design, Unit \& Integration Testing}
     }}
  \end{itemize}
