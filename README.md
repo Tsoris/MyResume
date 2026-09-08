@@ -1,6 +1,11 @@
 # LaTeX Resume
 
-This repository contains two resume variants that share one set of formatting and section content.
+This repository contains two resume variants that share one set of formatting and section content.  
+
+  As a current computer science student with prior production software engineering experience at Amazon Ads, my background is relevant to both
+  internship and full-time opportunities. The internship resume foregrounds my education and current student status, while the full-time resume
+  foregrounds my professional engineering experience. Both variants represent the same background, with their organization tailored to the
+  role.
 
 ## Published resume
 
