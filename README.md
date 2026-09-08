@@ -1,33 +1,62 @@
 # LaTeX Resume
 
-This repository contains my resume written in LaTeX.
+This repository contains two resume variants that share one set of formatting and section content.
+
+## Published resume
+
+The internship-focused resume is the canonical public version:
+
+**[View current resume](docs/Resume.pdf)**
+
+GitHub Actions rebuilds that file after each push. The full-time variant is built by the same workflow and uploaded as a downloadable workflow artifact, but it is not committed into `docs/`.
+
+## Project structure
+
+```text
+resumes/
+  internship.tex       Public, education-first resume
+  full-time.tex        Experience-first application variant
+shared/
+  resume-format.tex    LaTeX preamble, layout, and reusable commands
+  sections/            Shared resume content
+docs/
+  Resume.pdf           Canonical public PDF
+build/                 Local generated PDFs (ignored by Git)
+```
+
+`resume.tex` remains as a compatibility entry point for the public internship resume.
 
 ## Prerequisites
 
-### Windows
+On Windows, install [MiKTeX](https://miktex.org/download) and allow it to install missing packages automatically. Restart the terminal after installation.
 
-Install **MiKTeX**:
+## Build locally
 
-- https://miktex.org/download
+Run these commands from the repository root:
 
-During installation:
+Create the build directory; only necessary the first time:
+```powershell
+New-Item -ItemType Directory -Path build -Force | Out-Null
+```
+Build the internship resume:
+```powershell
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build resumes/internship.tex
+```
+Build the full-time resume:
 
-- Select **"Install missing packages on the fly"**
-- Choose **"Yes"** when prompted to allow automatic package installation
-- Use default installation settings
-
-After installation, restart your terminal.
-
-## Build Locally
-
-From the repository root, run:
-
-```bash
-pdflatex resume.tex
+```powershell
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory=build resumes/full-time.tex
 ```
 
-The generated PDF will be written to `resume.pdf`.
+Open either generated PDF:
 
-## Published PDF
+```powershell
+Start-Process build/internship.pdf
+Start-Process build/full-time.pdf
+```
 
-The repo publishes the built resume to `docs/Resume.pdf` through GitHub Actions.
+The `build/` directory is ignored by Git. The `.tex` files are the permanent source of truth and can regenerate both PDFs on any machine with LaTeX installed.
+
+## Download the full-time build from GitHub
+
+Open the repository's **Actions** tab, select a successful **Build LaTeX Resumes** run, and download **full-time-resume** from the run's **Artifacts** section.

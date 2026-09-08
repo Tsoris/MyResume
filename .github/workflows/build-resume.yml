@@ -1,18 +1,15 @@
-name: Build LaTeX Resume
+name: Build LaTeX Resumes
 
 on:
   push:
   workflow_dispatch:
 
 permissions:
-  contents: write  # needed to push the compiled PDF back
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      RESUME_TEX: resume.tex
-      OUTPUT_PDF: Resume.pdf
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,35 +21,33 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-latex-base texlive-latex-recommended texlive-latex-extra latexmk
 
-      - name: Build resume
+      - name: Build resume variants
         run: |
-          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -file-line-error" "${RESUME_TEX}"
+          mkdir -p build docs
+          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -file-line-error" -outdir=build resumes/internship.tex
+          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -file-line-error" -outdir=build resumes/full-time.tex
+          cp build/internship.pdf docs/Resume.pdf
 
-      - name: Upload LaTeX logs (always)
+      - name: Upload LaTeX logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: latex-logs
           path: |
-            **/*.log
-            **/*.blg
-            **/*.fls
+            build/*.log
+            build/*.blg
+            build/*.fls
+          if-no-files-found: ignore
 
-      - name: Prepare docs folder
-        run: |
-          mkdir -p docs
-          src="${RESUME_TEX}"
-          pdf="${src%.tex}.pdf"
-          mv "$pdf" "docs/${OUTPUT_PDF}"
-
-      - name: Upload artifact (optional)
+      - name: Upload full-time resume
         uses: actions/upload-artifact@v4
         with:
-          name: resume-pdf
-          path: docs/${{ env.OUTPUT_PDF }}
+          name: full-time-resume
+          path: build/full-time.pdf
+          retention-days: 90
 
-      - name: Commit PDF back to repo
+      - name: Commit public resume
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(ci): auto-build resume PDF"
-          file_pattern: docs/${{ env.OUTPUT_PDF }}
+          commit_message: "chore(ci): auto-build public resume PDF"
+          file_pattern: docs/Resume.pdf

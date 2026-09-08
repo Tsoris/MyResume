@@ -11,10 +11,11 @@
 *.synctex
 *.synctex(busy)
 
+*.pdf
+
 # Keep the published PDF
 !docs/Resume.pdf
-*.pdf
-JakeResume.tex
+build/
 
 # IDE files
 .idea/

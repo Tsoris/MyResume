@@ -1,0 +1,87 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.55in]{geometry}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{iftex}
+\usepackage{lmodern}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[
+  hidelinks,
+  unicode=true,
+  pdfauthor={Timothy Sorisa},
+  pdftitle={Timothy Sorisa Resume},
+  pdfsubject={Software Engineering Resume}
+]{hyperref}
+
+\setlength{\parindent}{0pt}
+\DisableLigatures{encoding = *, family = *}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \textbf{#1} \hfill #2 \\
+    \textit{\small #3} \hfill \textit{\small #4}
+    \vspace{-7pt}
+}
+
+\newcommand{\resumeSubheadingDesc}[5]{
+  \vspace{-2pt}\item
+    \textbf{#1} \hfill #2 \\
+    \textit{\small #3} \hfill \textit{\small #4} \\
+    {\small\itshape #5}
+    \vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+  \small #1 \hfill #2
+  \vspace{-7pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=0pt]
+}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=*, itemsep=0pt, topsep=0pt]
+}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+\newcommand{\resumeHeader}{
+  \begin{center}
+    \textbf{\Large Timothy Sorisa}\\
+    \vspace{2pt}
+    \href{mailto:t.sorisa@gmail.com}{t.sorisa@gmail.com} $\vert$ (863) 256-7823\\
+    \href{https://www.linkedin.com/in/timothy-sorisa}{linkedin.com/in/timothy-sorisa} $\vert$
+    \href{https://github.com/tsoris}{github.com/tsoris} $\vert$
+    \href{https://tims-devfolio.vercel.app/}{tims-devfolio.vercel.app}
+  \end{center}
+}
